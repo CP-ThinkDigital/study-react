@@ -92,7 +92,6 @@ const SidebarContent = ({ onClose, ...rest }) => {
 };
 
 const NavItem = ({ to, icon, children, ...rest }) => {
-  console.log(children);
   return (
     <Link
       as={Navlink}
