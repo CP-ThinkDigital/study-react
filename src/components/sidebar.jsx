@@ -32,6 +32,7 @@ import {
 const LinkItems = [
   { name: "Dashboard", icon: FiHome, to: "/dashboard" },
   { name: "Studyform", icon: FiTrendingUp, to: "/studyform" },
+  { name: "DynamicForm", icon: FiTrendingUp, to: "/dynamicform" },
 ];
 
 export default function Sidebar({ children }) {

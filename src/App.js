@@ -4,6 +4,7 @@ import "./App.css";
 import Dashboard from "./pages/dashboard";
 import StudyForm from "./pages/studyform";
 import Layout from "./pages/layout";
+import DynamicForm from "./pages/dynamicform";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="studyform" element={<StudyForm />} />
+          <Route path="dynamicform" element={<DynamicForm />} />
         </Route>
       </Routes>
     </ChakraProvider>
