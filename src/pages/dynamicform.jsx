@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 
 import {
-  Box,
   Input,
   FormControl,
   FormLabel,
@@ -27,6 +26,8 @@ import {
 import { ArrowBackIcon, DeleteIcon } from "@chakra-ui/icons";
 
 import { Select } from "chakra-react-select";
+
+import CustomBox from "../components/customBox";
 
 const customers = [
   {
@@ -166,26 +167,20 @@ const DynamicForm = () => {
 
   return (
     <>
-      <Box bg="white" p={3} mb={5} style={{ borderRadius: "10px" }}>
+      <CustomBox>
         <Flex alignItems="center" gap={2}>
           <Link to="">
             <ArrowBackIcon w={6} h={6} />
           </Link>
 
-          <Heading as="h3" size="lg" color="gray.600">
+          <Heading as="h3" size="lg">
             DYNAMIC FORM
           </Heading>
         </Flex>
-      </Box>
+      </CustomBox>
 
       <form onSubmit={handleSubmit(onFormSubmit)}>
-        <Box
-          p={4}
-          color="black"
-          bg="white"
-          mb={6}
-          style={{ borderRadius: "10px" }}
-        >
+        <CustomBox>
           <Flex gap={4}>
             <Controller
               control={control}
@@ -195,7 +190,7 @@ const DynamicForm = () => {
               }}
               render={({ field: { onChange, onBlur, value, name, ref } }) => (
                 <FormControl isInvalid={errors.party}>
-                  <FormLabel color="gray.600"> Party </FormLabel>
+                  <FormLabel> Party </FormLabel>
                   <Select
                     name={name}
                     ref={ref}
@@ -219,7 +214,7 @@ const DynamicForm = () => {
             />
 
             <FormControl isInvalid={errors.invoice_number}>
-              <FormLabel color="gray.600"> Invoide Number </FormLabel>
+              <FormLabel> Invoide Number </FormLabel>
               <Input
                 type="number"
                 placeholder="Invoice Number"
@@ -234,7 +229,7 @@ const DynamicForm = () => {
             </FormControl>
 
             <FormControl isInvalid={errors.invoice_date}>
-              <FormLabel color="gray.600"> Invoice Date </FormLabel>
+              <FormLabel> Invoice Date </FormLabel>
               <Input
                 type="date"
                 {...register("invoice_date", {
@@ -247,17 +242,9 @@ const DynamicForm = () => {
               </FormErrorMessage>
             </FormControl>
           </Flex>
-        </Box>
+        </CustomBox>
 
-        <Box
-          p={4}
-          color="black"
-          bg="white"
-          mb={5}
-          style={{
-            borderRadius: "10px",
-          }}
-        >
+        <CustomBox>
           <TableContainer
             style={{ overflowX: "visible", overflowY: "visible" }}
           >
@@ -449,29 +436,17 @@ const DynamicForm = () => {
               </Tbody>
             </Table>
           </TableContainer>
-        </Box>
+        </CustomBox>
 
-        <Box
-          p={4}
-          color="black"
-          bg="white"
-          mb={5}
-          style={{ borderRadius: "10px" }}
-        >
+        <CustomBox>
           <Stack>
             <Button colorScheme="teal" onClick={() => appendItem()}>
               +Add New Item
             </Button>
           </Stack>
-        </Box>
+        </CustomBox>
 
-        <Box
-          p={4}
-          color="black"
-          bg="white"
-          mb={5}
-          style={{ borderRadius: "10px" }}
-        >
+        <CustomBox>
           <TableContainer>
             <Table variant="striped" size="sm">
               <Tbody>
@@ -490,15 +465,15 @@ const DynamicForm = () => {
               </Tbody>
             </Table>
           </TableContainer>
-        </Box>
+        </CustomBox>
 
-        <Box p={4} color="black" bg="white" style={{ borderRadius: "10px" }}>
+        <CustomBox>
           <Stack>
             <Button colorScheme="blue" type="submit">
               Submit
             </Button>
           </Stack>
-        </Box>
+        </CustomBox>
       </form>
     </>
   );

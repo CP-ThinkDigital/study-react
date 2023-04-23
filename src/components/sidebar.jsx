@@ -20,7 +20,10 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Button,
+  useColorMode,
 } from "@chakra-ui/react";
+
 import {
   FiHome,
   FiTrendingUp,
@@ -28,6 +31,8 @@ import {
   FiBell,
   FiChevronDown,
 } from "react-icons/fi";
+
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 const LinkItems = [
   { name: "Dashboard", icon: FiHome, to: "/dashboard" },
@@ -130,6 +135,7 @@ const NavItem = ({ to, icon, children, ...rest }) => {
 };
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -166,6 +172,11 @@ const MobileNav = ({ onOpen, ...rest }) => {
           aria-label="open menu"
           icon={<FiBell />}
         />
+
+        <Button onClick={toggleColorMode}>
+          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+        </Button>
+
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
