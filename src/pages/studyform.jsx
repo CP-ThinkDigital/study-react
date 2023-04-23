@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 
 import {
-  Box,
   Input,
   FormControl,
   FormLabel,
@@ -18,6 +17,7 @@ import {
   Radio,
 } from "@chakra-ui/react";
 import { ArrowBackIcon, AddIcon } from "@chakra-ui/icons";
+import CustomBox from "../components/customBox";
 
 import { Select } from "chakra-react-select";
 
@@ -48,13 +48,13 @@ const StudyForm = () => {
 
   return (
     <>
-      <Box bg="white" p={3} mb={5} style={{ borderRadius: "10px" }}>
+      <CustomBox>
         <Flex alignItems="center" gap={2}>
           <Link to="">
             <ArrowBackIcon w={6} h={6} />
           </Link>
 
-          <Heading as="h3" size="lg" color="gray.600">
+          <Heading as="h3" size="lg">
             STUDY FORM
           </Heading>
 
@@ -67,13 +67,13 @@ const StudyForm = () => {
             </Button>
           </Link>
         </Flex>
-      </Box>
+      </CustomBox>
 
       <form onSubmit={handleSubmit(onFormSubmit)}>
-        <Box p={4} color="black" bg="white" style={{ borderRadius: "10px" }}>
+        <CustomBox>
           <Stack spacing={4}>
             <FormControl isInvalid={errors?.name}>
-              <FormLabel color="gray.600"> Name </FormLabel>
+              <FormLabel> Name </FormLabel>
               <Input
                 type="text"
                 placeholder="Name"
@@ -85,7 +85,7 @@ const StudyForm = () => {
             </FormControl>
 
             <FormControl isInvalid={errors?.age}>
-              <FormLabel color="gray.600"> Age </FormLabel>
+              <FormLabel> Age </FormLabel>
               <Input
                 type="number"
                 placeholder="Age"
@@ -106,7 +106,7 @@ const StudyForm = () => {
             </FormControl>
 
             <FormControl isInvalid={errors.date_of_birth}>
-              <FormLabel color="gray.600"> Date Of Birth </FormLabel>
+              <FormLabel> Date Of Birth </FormLabel>
               <Input
                 type="date"
                 {...register("date_of_birth", {
@@ -126,7 +126,7 @@ const StudyForm = () => {
               }}
               render={({ field: { onChange, onBlur, value, name, ref } }) => (
                 <FormControl isInvalid={errors.state}>
-                  <FormLabel color="gray.600"> State </FormLabel>
+                  <FormLabel> State </FormLabel>
                   <Select
                     name={name}
                     ref={ref}
@@ -149,7 +149,7 @@ const StudyForm = () => {
             />
 
             <FormControl isInvalid={errors.language}>
-              <FormLabel color="gray.600"> Known languages </FormLabel>
+              <FormLabel> Known languages </FormLabel>
               <Stack spacing={5} direction={"row"}>
                 <Checkbox
                   size="md"
@@ -188,7 +188,7 @@ const StudyForm = () => {
             </FormControl>
 
             <FormControl isInvalid={errors.gender}>
-              <FormLabel color="gray.600"> Gender </FormLabel>
+              <FormLabel> Gender </FormLabel>
               <RadioGroup>
                 <Stack direction="row">
                   <Radio
@@ -226,7 +226,7 @@ const StudyForm = () => {
               Submit
             </Button>
           </Stack>
-        </Box>
+        </CustomBox>
       </form>
     </>
   );
