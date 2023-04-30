@@ -5,6 +5,7 @@ import Dashboard from "./pages/dashboard";
 import StudyForm from "./pages/studyform";
 import Layout from "./pages/layout";
 import DynamicForm from "./pages/dynamicform";
+import AddState from "./pages/addstate";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="studyform" element={<StudyForm />} />
           <Route path="dynamicform" element={<DynamicForm />} />
+          <Route path="addstate" element={<AddState />} />
         </Route>
       </Routes>
     </ChakraProvider>

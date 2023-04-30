@@ -21,22 +21,14 @@ import CustomBox from "../components/customBox";
 
 import { Select } from "chakra-react-select";
 
-const states = [
-  {
-    value: "AL",
-    label: "Alabama",
-  },
-  {
-    value: "AK",
-    label: "Alaska",
-  },
-  {
-    value: "AZ",
-    label: "Arizona",
-  },
-];
+import { useSelector, useDispatch } from "react-redux";
+
+import { clearState } from "../features/study/studySlice";
 
 const StudyForm = () => {
+  const { states } = useSelector((state) => state.study);
+
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -66,6 +58,10 @@ const StudyForm = () => {
               Add Districts
             </Button>
           </Link>
+
+          <Button colorScheme="blue" onClick={() => dispatch(clearState())}>
+            Clear State
+          </Button>
         </Flex>
       </CustomBox>
 
