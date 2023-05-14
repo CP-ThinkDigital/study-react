@@ -25,8 +25,21 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { clearState } from "../features/study/studySlice";
 
+import {
+  useGetDataQuery,
+  useGetDataByIdQuery,
+  usePostDataMutation,
+} from "../services/studyFormApi";
+
 const StudyForm = () => {
   const { states } = useSelector((state) => state.study);
+
+  const { data: studyData, isLoading, error } = useGetDataQuery();
+  const { data: studyDataById } = useGetDataByIdQuery(1);
+  const [postData] = usePostDataMutation();
+
+  console.log(studyData, isLoading, error);
+  console.log(studyDataById);
 
   const dispatch = useDispatch();
   const {
@@ -36,7 +49,10 @@ const StudyForm = () => {
     control,
   } = useForm();
 
-  const onFormSubmit = (data) => console.log(data);
+  const onFormSubmit = (data) => {
+    postData(data);
+    console.log(data);
+  };
 
   return (
     <>
